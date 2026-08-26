@@ -50,6 +50,9 @@ npm run fonts      # installs Montserrat + Cormorant Garamond
 npm run build      # renders all PNGs, then regenerates index.html
 ```
 
+`npm run review` builds a single self-contained HTML review sheet with every
+creative inlined, for sharing with someone who does not have the repo.
+
 `node build.js <family>` rebuilds a single family. The build audits every board
 and **exits non-zero** if content overflows, a headline rewraps, or the CTA bar
 gets pushed off the artboard — so a copy edit that breaks a layout fails loudly
@@ -63,6 +66,8 @@ instead of shipping clipped.
 | `creatives.js` | The five families and their per-format metrics |
 | `build.js` | Renders PNGs + runs the layout audit |
 | `gallery.js` | Builds `index.html` |
+| `previews.js` | Renders inline JPEG previews for the shareable review sheet |
+| `artifact.js` | Builds a single self-contained HTML review sheet |
 | `copy.json` | Ad copy for each creative |
 
 ## Two notes before these go live

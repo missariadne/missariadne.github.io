@@ -1,3 +1,5 @@
 node_modules/
 fonts/
 .tmp/
+.previews.json
+.artifact/

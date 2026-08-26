@@ -5,7 +5,8 @@
   "scripts": {
     "fonts": "bash setup-fonts.sh",
     "build": "node build.js && node gallery.js",
-    "gallery": "node gallery.js"
+    "gallery": "node gallery.js",
+    "review": "node previews.js && node artifact.js"
   },
   "license": "ISC",
   "dependencies": {
