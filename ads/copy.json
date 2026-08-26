@@ -1,0 +1,43 @@
+{
+  "offer": "Morally Gray Love Interest Prompt Deck — free interactive deck, 30 prompts, 6 angles",
+  "register": "Plot Point Studios",
+  "funnelStage": "Cold / TOFU — lead generation",
+  "source": "mORALLY gREY CREATIVES (Google Doc) — copy quoted verbatim from the angle set",
+  "creatives": {
+    "hot-isnt-a-personality": {
+      "angle": "1. The \"He's Hot. But Is He Interesting?\" Angle",
+      "primaryText": "Your morally gray love interest has a dagger, a tragic past, and excellent cheekbones.\nBut does he have a personality? 😬\nThis free interactive deck can help with that.",
+      "headlines": ["Hot Isn't a Personality", "Give Him More Than a Jawline", "Make Him Actually Interesting"],
+      "description": "30 prompts for a love interest readers can't quite figure out.",
+      "cta": "Get the Free Deck"
+    },
+    "character-click": {
+      "angle": "3. The \"Something's Missing\" Angle",
+      "primaryText": "He looks right. He sounds right.\nHe has all the morally gray ingredients.\nSo why does he still feel...flat?",
+      "headlines": ["Something's Missing", "Why Does He Feel Flat?", "Find What He's Missing"],
+      "description": "Use 30 targeted prompts to find the missing layer.",
+      "cta": "Get the Free Deck"
+    },
+    "but-listen": {
+      "angle": "10. The Reader Obsession Angle",
+      "primaryText": "The best morally gray characters don't make readers say, \"He's hot.\"\nThey make readers say, \"Okay, BUT LISTEN—\"\nLet's build that guy.",
+      "headlines": ["Build the \"BUT LISTEN\" Guy", "Make Readers Defend Him", "Create Reader Obsession"],
+      "description": "30 prompts for deliciously complicated love interests.",
+      "cta": "Get the Free Deck"
+    },
+    "ask-better-questions": {
+      "angle": "18. The Character Questionnaire Hater",
+      "primaryText": "You don't need to know his favorite breakfast cereal.\nYou need to know what loving her will cost him.\nThese are those character questions.",
+      "headlines": ["Ask Better Questions", "Skip the Favorite Color", "Ask What Actually Matters"],
+      "description": "30 story-changing prompts for morally gray love interests.",
+      "cta": "Get Better Prompts Free"
+    },
+    "draw-at-your-own-risk": {
+      "angle": "20. The \"Dangerous Question\" Angle",
+      "primaryText": "Go ahead. Draw one.\nBut don't blame me when one innocent little question changes his entire backstory.\nYou were warned.",
+      "headlines": ["Draw At Your Own Risk", "One Card Changes Everything", "You've Been Warned"],
+      "description": "30 prompts. Six angles. One dangerously interesting love interest.",
+      "cta": "Draw Your First Card"
+    }
+  }
+}

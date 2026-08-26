@@ -1,0 +1,138 @@
+{
+  "placements": {
+    "square": {
+      "dims": "1080x1080",
+      "use": "Feed (1:1), Marketplace, right column"
+    },
+    "portrait": {
+      "dims": "1080x1350",
+      "use": "Feed (4:5) — most feed real estate"
+    },
+    "story": {
+      "dims": "1080x1920",
+      "use": "Stories & Reels (9:16)"
+    }
+  },
+  "creatives": [
+    {
+      "key": "hot-isnt-a-personality",
+      "label": "Hot Isn't a Personality",
+      "size": "square",
+      "file": "hot-isnt-a-personality--square.png",
+      "w": 1080,
+      "h": 1080
+    },
+    {
+      "key": "hot-isnt-a-personality",
+      "label": "Hot Isn't a Personality",
+      "size": "portrait",
+      "file": "hot-isnt-a-personality--portrait.png",
+      "w": 1080,
+      "h": 1350
+    },
+    {
+      "key": "hot-isnt-a-personality",
+      "label": "Hot Isn't a Personality",
+      "size": "story",
+      "file": "hot-isnt-a-personality--story.png",
+      "w": 1080,
+      "h": 1920
+    },
+    {
+      "key": "character-click",
+      "label": "The Character-Click Moment",
+      "size": "square",
+      "file": "character-click--square.png",
+      "w": 1080,
+      "h": 1080
+    },
+    {
+      "key": "character-click",
+      "label": "The Character-Click Moment",
+      "size": "portrait",
+      "file": "character-click--portrait.png",
+      "w": 1080,
+      "h": 1350
+    },
+    {
+      "key": "character-click",
+      "label": "The Character-Click Moment",
+      "size": "story",
+      "file": "character-click--story.png",
+      "w": 1080,
+      "h": 1920
+    },
+    {
+      "key": "but-listen",
+      "label": "Build the \"But Listen\" Guy",
+      "size": "square",
+      "file": "but-listen--square.png",
+      "w": 1080,
+      "h": 1080
+    },
+    {
+      "key": "but-listen",
+      "label": "Build the \"But Listen\" Guy",
+      "size": "portrait",
+      "file": "but-listen--portrait.png",
+      "w": 1080,
+      "h": 1350
+    },
+    {
+      "key": "but-listen",
+      "label": "Build the \"But Listen\" Guy",
+      "size": "story",
+      "file": "but-listen--story.png",
+      "w": 1080,
+      "h": 1920
+    },
+    {
+      "key": "ask-better-questions",
+      "label": "Ask Better Questions",
+      "size": "square",
+      "file": "ask-better-questions--square.png",
+      "w": 1080,
+      "h": 1080
+    },
+    {
+      "key": "ask-better-questions",
+      "label": "Ask Better Questions",
+      "size": "portrait",
+      "file": "ask-better-questions--portrait.png",
+      "w": 1080,
+      "h": 1350
+    },
+    {
+      "key": "ask-better-questions",
+      "label": "Ask Better Questions",
+      "size": "story",
+      "file": "ask-better-questions--story.png",
+      "w": 1080,
+      "h": 1920
+    },
+    {
+      "key": "draw-at-your-own-risk",
+      "label": "Draw at Your Own Risk",
+      "size": "square",
+      "file": "draw-at-your-own-risk--square.png",
+      "w": 1080,
+      "h": 1080
+    },
+    {
+      "key": "draw-at-your-own-risk",
+      "label": "Draw at Your Own Risk",
+      "size": "portrait",
+      "file": "draw-at-your-own-risk--portrait.png",
+      "w": 1080,
+      "h": 1350
+    },
+    {
+      "key": "draw-at-your-own-risk",
+      "label": "Draw at Your Own Risk",
+      "size": "story",
+      "file": "draw-at-your-own-risk--story.png",
+      "w": 1080,
+      "h": 1920
+    }
+  ]
+}

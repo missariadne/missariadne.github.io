@@ -1,0 +1,15 @@
+{
+  "name": "morally-gray-ad-creatives",
+  "version": "1.0.0",
+  "description": "Facebook/Instagram ad creatives for the Morally Gray Love Interest Prompt Deck",
+  "scripts": {
+    "fonts": "bash setup-fonts.sh",
+    "build": "node build.js && node gallery.js",
+    "gallery": "node gallery.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "playwright-core": "^1.62.1"
+  },
+  "private": true
+}
