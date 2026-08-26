@@ -4,7 +4,15 @@
 const B = require('./brand.js');
 const { C, DISPLAY, BODY } = B;
 
-const PROMPT = 'What would they choose her over&mdash;<br>and why is that choice a problem?';
+// Real cards from the deck, verified against the live build.
+const CARDS = {
+  cost:    { q: 'They would choose her over the world,<br>and your story treats that as a flaw.',
+             no: 29, angle: 'THE COST OF LOVING HER', seed: 7 },
+  tells:   { q: 'They never sit with their back<br>to a door.',
+             no: 12, angle: 'BODY LANGUAGE AND TELLS', seed: 4 },
+  secrets: { q: 'They have already decided how this ends.<br>No one else knows the plan.',
+             no: 5,  angle: 'POWER AND SECRETS', seed: 11 },
+};
 
 // Per-format metrics. Width is always 1080; only vertical room changes, so the
 // square board is the tight one and everything scales off it.
@@ -21,7 +29,7 @@ function metrics(size, weight = 1) {
 }
 
 // Shared bottom CTA bar: midnight banner, offer line, wordmark.
-function ctaBar(m, line, cta, bg = C.midnight) {
+function ctaBar(m, line, cta, bg = C.midnight, fg = C.tiffany) {
   return `<div style="background:${bg};padding:${m.bar}px 62px;display:flex;align-items:center;
     justify-content:space-between;gap:36px;position:relative;z-index:3;flex-shrink:0">
     <div style="font-family:${BODY};font-size:${m.barFs}px;font-weight:500;color:${C.tiffany};
@@ -71,18 +79,18 @@ function characterClick(size) {
   const [w, h] = B.SIZES[size], m = metrics(size, 1.04), k = m.k;
   const cw = Math.round(370 * k);
   const body = `<div class="board" style="background:
-    radial-gradient(ellipse at 50% 42%, #1b6a72 0%, ${C.midnight} 46%, ${C.gunmetal} 100%)">
-    ${B.cornerFloral('tr', 0.9, C.tiffany, 0.22)}
-    ${B.cornerFloral('bl', 0.8, C.tiffany, 0.16)}
+    radial-gradient(ellipse at 50% 42%, #1D4A30 0%, ${C.forest} 50%, ${C.forestDeep} 100%)">
+    ${B.cornerFloral('tr', 0.9, C.gold, 0.20)}
+    ${B.cornerFloral('bl', 0.8, C.gold, 0.14)}
     ${well(m, `
       <h1 style="font-family:${DISPLAY};font-size:${Math.round(70 * k)}px;line-height:1.14;
         color:${C.white};font-weight:500;max-width:880px">Something about him<br>isn&rsquo;t clicking.</h1>
       <div style="margin:${Math.round(42 * k)}px 0 ${Math.round(38 * k)}px">
-        ${B.card(PROMPT, { w: cw, rotate: -3.5, glow: true, no: '12', angle: 'THE COST' })}</div>
+        ${B.card(CARDS.tells.q, { w: cw, rotate: -3.5, glow: true, ...CARDS.tells })}</div>
       <p style="font-family:${DISPLAY};font-style:italic;font-size:${Math.round(50 * k)}px;
         color:${C.arylide};line-height:1.28">One question might fix that.</p>`)}
     ${ctaBar(m, 'Turn over a card. Discover what&rsquo;s underneath.', 'DRAW YOUR FIRST CARD',
-      'rgba(8,36,43,.92)')}
+      'rgba(6,18,11,.92)', C.cream)}
   </div>`;
   return B.page(w, h, body, C.gunmetal);
 }
@@ -135,7 +143,7 @@ function askBetterQuestions(size) {
       </div>
       <div style="font-family:${BODY};font-size:${Math.round(58 * k)}px;font-weight:800;
         color:${C.gamboge};line-height:1;margin:${Math.round(12 * k)}px 0 ${Math.round(22 * k)}px">&darr;</div>
-      ${B.card('What would loving her<br>cost him?', { w: cw, rotate: 2.5, no: '04', angle: 'THE COST' })}
+      ${B.card(CARDS.cost.q, { w: cw, rotate: 2.5, ...CARDS.cost })}
       <h1 style="font-family:${DISPLAY};font-size:${Math.round(82 * k)}px;line-height:1.06;
         color:${C.midnight};font-weight:600;margin-top:${Math.round(38 * k)}px">Ask better questions.</h1>`)}
     ${ctaBar(m, '30 story-changing prompts. Zero favorite colors.', 'GET BETTER PROMPTS FREE')}
@@ -148,19 +156,19 @@ function drawAtYourOwnRisk(size) {
   const [w, h] = B.SIZES[size], m = metrics(size, 1.04), k = m.k;
   const cw = Math.round(372 * k);
   const body = `<div class="board" style="background:
-    radial-gradient(ellipse at 50% 48%, #10454c 0%, ${C.gunmetal} 58%, #04161b 100%)">
-    ${B.cornerFloral('tl', 0.95, C.tiffany, 0.14)}
-    ${B.cornerFloral('br', 0.95, C.tiffany, 0.14)}
+    radial-gradient(ellipse at 50% 48%, #17402A 0%, ${C.forest} 56%, #060F0A 100%)">
+    ${B.cornerFloral('tl', 0.95, C.gold, 0.13)}
+    ${B.cornerFloral('br', 0.95, C.gold, 0.13)}
     ${well(m, `
       <h1 style="font-family:${DISPLAY};font-size:${Math.round(76 * k)}px;line-height:1.12;
         color:${C.white};font-weight:500">Go ahead. Draw one.</h1>
       <div style="margin:${Math.round(44 * k)}px 0 ${Math.round(40 * k)}px">
-        ${B.card(PROMPT, { w: cw, rotate: -2, glow: true, no: '21', angle: 'THE COST' })}</div>
+        ${B.card(CARDS.secrets.q, { w: cw, rotate: -2, glow: true, ...CARDS.secrets })}</div>
       <p style="font-family:${DISPLAY};font-style:italic;font-size:${Math.round(52 * k)}px;
         color:${C.arylide};line-height:1.26">Just don&rsquo;t blame me afterward.</p>
-      <div style="margin-top:${Math.round(34 * k)}px">${eyebrow('DRAW AT YOUR OWN RISK', C.tiffany, k)}</div>`)}
+      <div style="margin-top:${Math.round(34 * k)}px">${eyebrow('DRAW AT YOUR OWN RISK', C.gold, k)}</div>`)}
     ${ctaBar(m, '30 prompts. Six angles. One dangerously interesting love interest.',
-      'DRAW YOUR FIRST CARD', 'rgba(4,22,27,.92)')}
+      'DRAW YOUR FIRST CARD', 'rgba(4,14,9,.93)', C.cream)}
   </div>`;
   return B.page(w, h, body, C.gunmetal);
 }

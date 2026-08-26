@@ -76,8 +76,13 @@ instead of shipping clipped.
    commercial licence that can't be redistributed here, so these render in
    **Cormorant Garamond**. It's close in feel, but swap The Seasons back in if
    you rebuild these in Canva.
-2. **The botanicals are rebuilt, not the originals.** The floral and corner
-   florals are drawn as SVG in `brand.js` to brand spec, because the original
-   `assets/floral.png`, `assets/corner-floral.png`, and `assets/mark.png`
-   weren't reachable from this environment. Drop the real PNGs in and swap the
-   `cornerFloral()` calls if you want the originals.
+2. **Some art is still rebuilt rather than original.** The botanicals and the
+   `plotpoint` mark are drawn as SVG in `brand.js`, because the real asset files
+   have not landed on disk yet. The deck card itself *is* matched to the live
+   deck — forest ground, gold fleck, double gold hairline, real angle names, real
+   prompts and card numbers.
+3. **These do not match the house style of the existing ads.** See
+   `reference/` — the two ads already in market use a white paper ground, a large
+   forest-green serif headline, a device mockup with floating cards, and a gold
+   *Free* badge. The five families here are flat-colour typographic boards, a
+   different lane. Worth deciding which direction the set should be in.

@@ -2,6 +2,14 @@
 // Palette + type per the plot-point-brand-system skill.
 
 const C = {
+  // Deck palette — taken from the live Morally Gray deck, not the core brand teal.
+  forest:    '#12321F',
+  forestDeep:'#0A1F13',
+  gold:      '#C8A951',
+  goldLit:   '#DFC275',
+  cream:     '#FAF8EF',
+  quoteInk:  '#F4F1E4',
+
   midnight: '#14545B',
   tiffany:  '#97CCC0',
   arylide:  '#E8CD66',
@@ -91,33 +99,62 @@ function badge(lines, scale = 1, bg = C.gunmetal, fg = C.arylide) {
 
 /* ---------- the deck card ---------- */
 
-// A single prompt card from the deck. The hero object in several creatives.
-function card(question, { no = '07', angle = 'THE COST', w = 470, rotate = 0, glow = false } = {}) {
-  const h = Math.round(w * 1.45);
+// The six angles the deck actually sorts its prompts into.
+const ANGLES = [
+  'POWER AND SECRETS', 'WOUND AND ORIGIN', 'BODY LANGUAGE AND TELLS',
+  'DIALOGUE STARTERS', 'HOW OTHERS SEE THEM', 'THE COST OF LOVING HER',
+];
+
+// Deterministic gold fleck wash, matching the deck's speckled card face.
+// Drawn in real pixels so the flecks stay fine at any card size.
+function speckle(w, h, seed = 1) {
+  let t = seed * 9301 + 49297;
+  const rnd = () => (t = (t * 9301 + 49297) % 233280) / 233280;
+  const n = Math.round((w * h) / 260);
+  let dots = '';
+  for (let i = 0; i < n; i++) {
+    let x = rnd() * w, y = rnd() * h;
+    // Push a share of the flecks outward so the centre stays readable.
+    if (rnd() < 0.6) {
+      x = x < w / 2 ? x * 0.44 : w - (w - x) * 0.44;
+      y = y < h / 2 ? y * 0.44 : h - (h - y) * 0.44;
+    }
+    const r = (rnd() * 1.25 + 0.35).toFixed(2), o = (rnd() * 0.5 + 0.14).toFixed(2);
+    dots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="#DFC275" opacity="${o}"/>`;
+  }
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"
+    style="position:absolute;inset:0">${dots}</svg>`;
+}
+
+// A face-up prompt card from the deck: forest ground, gold fleck, double gold
+// hairline, angle label in caps, the prompt in serif, and its number out of 30.
+function card(question, { no = 29, angle = 'THE COST OF LOVING HER', w = 470,
+                          rotate = 0, glow = false, seed = 3 } = {}) {
+  const h = Math.round(w * 1.3);
   const s = w / 470;
   return `<div style="width:${w}px;height:${h}px;transform:rotate(${rotate}deg);
-    background:linear-gradient(160deg,${C.midnight} 0%,${C.gunmetal} 100%);
-    border:${2 * s}px solid ${C.gamboge};border-radius:${20 * s}px;position:relative;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    padding:${52 * s}px ${40 * s}px;box-sizing:border-box;overflow:hidden;
+    background:radial-gradient(ellipse at 50% 38%, #163A25 0%, ${C.forest} 52%, ${C.forestDeep} 100%);
+    border-radius:${18 * s}px;position:relative;overflow:hidden;
     box-shadow:${glow
-      ? `0 0 ${90 * s}px rgba(232,205,102,.42), 0 ${26 * s}px ${60 * s}px rgba(0,0,0,.55)`
-      : `0 ${22 * s}px ${52 * s}px rgba(8,36,43,.42)`}">
-    <div style="position:absolute;inset:${13 * s}px;border:${1 * s}px solid rgba(232,205,102,.34);
-      border-radius:${12 * s}px"></div>
-    <div style="position:absolute;top:${-34 * s}px;left:${-34 * s}px;opacity:.20">
-      ${flower(140 * s, C.tiffany, C.arylide)}</div>
-    <div style="position:absolute;bottom:${-30 * s}px;right:${-30 * s}px;opacity:.20;
-      transform:rotate(180deg)">${flower(120 * s, C.tiffany, C.arylide)}</div>
-    <div style="font-family:${BODY};font-size:${15 * s}px;font-weight:700;color:${C.gamboge};
-      letter-spacing:${4.4 * s}px;margin-bottom:${30 * s}px">${angle}</div>
-    <div style="width:${52 * s}px;height:${1.5 * s}px;background:${C.gamboge};opacity:.65;
-      margin-bottom:${34 * s}px"></div>
-    <div style="font-family:${DISPLAY};font-size:${43 * s}px;line-height:1.28;color:${C.white};
-      text-align:center;font-weight:400">${question}</div>
-    <div style="position:absolute;bottom:${30 * s}px;font-family:${BODY};font-size:${13 * s}px;
-      font-weight:600;color:${C.tiffany};letter-spacing:${3.4 * s}px;opacity:.75">
-      MORALLY GRAY &nbsp;&middot;&nbsp; No. ${no}</div>
+      ? `0 0 ${86 * s}px rgba(200,169,81,.34), 0 ${24 * s}px ${56 * s}px rgba(6,20,12,.60)`
+      : `0 ${20 * s}px ${48 * s}px rgba(6,20,12,.44)`}">
+    ${speckle(w, h, seed)}
+    <div style="position:absolute;inset:${11 * s}px;border:${1.2 * s}px solid rgba(200,169,81,.72);
+      border-radius:${11 * s}px"></div>
+    <div style="position:absolute;inset:${17 * s}px;border:${0.8 * s}px solid rgba(200,169,81,.34);
+      border-radius:${7 * s}px"></div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+      justify-content:space-between;padding:${46 * s}px ${38 * s}px ${34 * s}px;box-sizing:border-box">
+      <div style="font-family:${BODY};font-size:${14 * s}px;font-weight:700;color:${C.gold};
+        letter-spacing:${3.6 * s}px;line-height:1.9;text-align:center">${angle.replace(' AND ', ' AND<br>')}</div>
+      <div style="font-family:${DISPLAY};font-size:${42 * s}px;line-height:1.3;color:${C.quoteInk};
+        text-align:center;font-weight:400;padding:0 ${4 * s}px">${question}</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:${11 * s}px">
+        <div style="width:${34 * s}px;height:${1 * s}px;background:${C.gold};opacity:.8"></div>
+        <div style="font-family:${DISPLAY};font-style:italic;font-size:${19 * s}px;color:${C.gold};
+          letter-spacing:${1 * s}px">${no} / 30</div>
+      </div>
+    </div>
   </div>`;
 }
 
@@ -135,4 +172,4 @@ function page(w, h, bodyHtml, bg) {
   </style></head><body>${bodyHtml}</body></html>`;
 }
 
-module.exports = { C, DISPLAY, BODY, flower, bud, sprig, cornerFloral, wordmark, badge, card, page, SIZES };
+module.exports = { C, DISPLAY, BODY, ANGLES, speckle, flower, bud, sprig, cornerFloral, wordmark, badge, card, page, SIZES };
