@@ -1,5 +1,7 @@
 # Reels Editor Upgrade: "Make Them Feel Seen"
 
+> **Superseded by spec v2**, which is kept privately (it includes members-only course notes). This file stays as the public webinar-only version.
+
 **Source:** Shannon McKinstrie, *Your Next 5 Posts* masterclass (YouTube, 1h 2m, Nov 2026)
 **For:** Ariadne Hamilton / Plot Point Studios reels editor
 **Status:** Spec to hand to the reels-editor build chat
